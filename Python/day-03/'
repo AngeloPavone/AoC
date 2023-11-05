@@ -1,0 +1,65 @@
+
+
+def part1():
+
+    similar_items = []
+    item_values = []
+
+    with open('input', 'r') as f:
+        for line in f:
+            first_pocket = []
+            second_pocket = []
+            checked = []
+            first_pocket = line[:len(line)//2]
+            second_pocket = line[len(line)//2:]
+            for item1 in first_pocket:
+                for item2 in second_pocket:
+                    if item1 == item2 not in checked:
+                        checked.append(item1)
+                        similar_items.append(item1)
+
+        for item in similar_items:
+            if item.islower():
+                item_values.append(ord(item) - 96)
+            else:
+                item_values.append(ord(item) - 38)
+
+    print(sum(item_values))
+
+
+def part2():
+    bag = []
+    badges = []
+    fuck = []
+    checked = []
+
+    with open('input', 'r') as f:
+        for line in f:
+            bag.append(line.strip())
+
+
+        for items in range(len(bag)):
+            if items % 3 == 0:
+                for item in bag[items]:
+                    if item in bag[items + 1] and item in bag[items + 2] and item not in checked:
+                        badges.append(item)
+                        checked.append(item)
+
+            checked = []
+
+        for item in badges:
+            if item.islower():
+                fuck.append(ord(item) - 96)
+            else:
+                fuck.append(ord(item) - 38)
+
+    print(sum(fuck))
+                        
+
+
+
+
+                
+
+part1()
+part2()
