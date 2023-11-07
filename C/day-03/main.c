@@ -5,11 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define SUCCESS                     0
-#define FILE_NOT_FOUND              1
-#define EOF_REACHED                 0
-#define COULD_NOT_READ_CHUNKS       2
-#define COULD_NOT_FIND_SIMILAR_ITEM 3
+#define FILE_NOT_FOUND 1
 
 const char* INPUT_FILE = "../../Input/2022-day03";
 char CHUNK[256];
