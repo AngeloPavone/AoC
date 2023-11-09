@@ -8,15 +8,14 @@
 #define FILE_NOT_FOUND 1
 
 const char* INPUT_FILE = "../../Input/2022-day03";
-char CHUNK[256];
 
-FILE* openFile(const char* INPUT_FILE)
+FILE* openFile(const char* file)
 {
-    FILE* fptr = fopen(INPUT_FILE, "r");
+    FILE* fptr = fopen(file, "r");
 
     if (fptr == NULL)
     {
-        perror("ERROR: Input file not found");
+        printf("ERROR: No such file or directory: %s\n", file);
         exit(FILE_NOT_FOUND);
     }
     return fptr;
@@ -24,10 +23,12 @@ FILE* openFile(const char* INPUT_FILE)
 
 int part1(FILE* fptr)
 {
+    char chunk[256];
     size_t sum = 0;
-    while (fgets(CHUNK, sizeof(CHUNK), fptr) != NULL)
+
+    while (fgets(chunk, sizeof(chunk), fptr) != NULL)
     {
-        size_t chunk_len = strlen(CHUNK);
+        size_t chunk_len = strlen(chunk);
         bool found       = false;
 
         for (size_t i = 0; i < chunk_len / 2; ++i)
@@ -39,17 +40,16 @@ int part1(FILE* fptr)
                     break;
                 }
 
-                if (CHUNK[j] == CHUNK[i])
+                if (chunk[j] == chunk[i])
                 {
-                    if (CHUNK[j] >= 'a' && CHUNK[i] <= 'z')
+                    found = true;
+                    if (chunk[j] >= 'a' && chunk[i] <= 'z')
                     {
-                        sum += CHUNK[j] - 'a' + 1;
-                        found = true;
+                        sum += chunk[j] - 'a' + 1;
                     }
-                    else if (CHUNK[j] >= 'A' && CHUNK[i] <= 'Z')
+                    else if (chunk[j] >= 'A' && chunk[i] <= 'Z')
                     {
-                        sum += CHUNK[j] - 'A' + 27;
-                        found = true;
+                        sum += chunk[j] - 'A' + 27;
                     }
                 }
             }
@@ -58,11 +58,22 @@ int part1(FILE* fptr)
     return sum;
 }
 
+void part2(FILE* fptr)
+{
+    char chunk[256];
+
+    while (fgets(chunk, sizeof(chunk), fptr) != NULL)
+    {
+        puts(chunk);
+    }
+}
+
 int main(void)
 {
     FILE* fptr = openFile(INPUT_FILE);
 
-    printf("%d\n", part1(fptr));
+    printf("part1: %d\n", part1(fptr));
+    part2(fptr);
 
     fclose(fptr);
 };
