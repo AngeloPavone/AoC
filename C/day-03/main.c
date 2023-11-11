@@ -7,7 +7,7 @@
 
 #define FILE_NOT_FOUND 1
 
-const char* INPUT_FILE = "../../Input/2022-day03";
+const char* INPUT_FILE1 = "../../Input/2022-day03";
 
 FILE* openFile(const char* file)
 {
@@ -70,7 +70,7 @@ void part2(FILE* fptr)
 
 int main(void)
 {
-    FILE* fptr = openFile(INPUT_FILE);
+    FILE* fptr = openFile(INPUT_FILE1);
 
     printf("part1: %d\n", part1(fptr));
     part2(fptr);
