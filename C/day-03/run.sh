@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-./build.sh && ./main
+./build.sh && ./part1 && ./part2
