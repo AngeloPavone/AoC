@@ -21,7 +21,7 @@ FILE* openFile(const char* file)
     return fptr;
 }
 
-int part1(FILE* fptr)
+int search_backpack(FILE* fptr)
 {
     char chunk[256];
     size_t sum = 0;
@@ -58,22 +58,11 @@ int part1(FILE* fptr)
     return sum;
 }
 
-void part2(FILE* fptr)
-{
-    char chunk[256];
-
-    while (fgets(chunk, sizeof(chunk), fptr) != NULL)
-    {
-        puts(chunk);
-    }
-}
-
 int main(void)
 {
     FILE* fptr = openFile(INPUT_FILE1);
 
-    printf("part1: %d\n", part1(fptr));
-    part2(fptr);
+    printf("part1: %d\n", search_backpack(fptr));
 
     fclose(fptr);
 };
