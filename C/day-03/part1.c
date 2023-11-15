@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define FILE_NOT_FOUND 1
+#define FILE_NOT_FOUND 2
 
 const char* INPUT_FILE1 = "../../Input/2022-day03";
 
@@ -29,7 +29,8 @@ int search_backpack(FILE* fptr)
   while (fgets(chunk, sizeof(chunk), fptr) != NULL)
   {
     size_t chunk_len = strlen(chunk);
-    bool found       = false;
+
+    bool found = false;
 
     for (size_t i = 0; i < chunk_len / 2; ++i)
     {
@@ -65,4 +66,6 @@ int main(void)
   printf("part1: %d\n", search_backpack(fptr));
 
   fclose(fptr);
+
+  return EXIT_SUCCESS;
 };
