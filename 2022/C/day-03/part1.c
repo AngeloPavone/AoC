@@ -6,8 +6,7 @@
 #include <stdbool.h>
 
 #define FILE_NOT_FOUND 2
-
-const char* INPUT_FILE1 = "../../Input/2022-day03";
+#define INPUT_FILE "../../Inputs/2022-day03"
 
 FILE* openFile(const char* file)
 {
@@ -61,7 +60,7 @@ int search_backpack(FILE* fptr)
 
 int main(void)
 {
-  FILE* fptr = openFile(INPUT_FILE1);
+  FILE* fptr = openFile(INPUT_FILE);
 
   printf("part1: %d\n", search_backpack(fptr));
 
