@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,10 +33,20 @@ int main(void) {
       chunk[len - 1] = '\0';
     }
 
-    for (int i = 0; chunk[i] != '\0'; ++i) {
+    size_t first = 0;
+    size_t second = 0;
+    size_t total = 0;
 
-      if (chunk[i] >= '0' && chunk[i] <= '9') {
+    for (int i = 0; chunk[i] != '\0'; ++i) {
+      if (isdigit(chunk[i])) {
         fprintf(stdout, "%c", chunk[i]);
+        break;
+      }
+    }
+    for (int j = len; chunk[j] != chunk[0]; --j) {
+      if (isdigit(chunk[j])) {
+        fprintf(stdout, "%c", chunk[j]);
+        break;
       }
     }
     fprintf(stdout, "\n");
