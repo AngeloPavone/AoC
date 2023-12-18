@@ -1,8 +1,8 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 set -xe
 
-set CFLAGS="-std=C2x -Wall -Wextra -ggdb"
+CFLAGS="-std=c2x -Wall -Wextra -g -pedantic"
 
-clang $CFLAGS -o part1 part1.c
-clang $CFLAGS -o part2 part2.c
+gcc $CFLAGS -o part1 part1.c
+gcc $CFLAGS -o part2 part2.c

@@ -1,17 +1,12 @@
 // #define TEST_MODE
 #include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 const char *test = "../../Inputs/Tests/day-01-part-1";
 const char *part1 = "../../Inputs/day-01";
-
-typedef enum
-{
-  false,
-  true
-} bool;
 
 typedef enum
 {
@@ -53,7 +48,7 @@ int main(void)
     }
 
     size_t first = 0;
-    bool found_first = false;
+    _Bool found_first = false;
 
     for(int i = 0; !found_first; ++i)
     {
@@ -65,7 +60,7 @@ int main(void)
     }
 
     size_t second = 0;
-    bool found_second = false;
+    _Bool found_second = false;
 
     for(int j = len; !found_second; --j)
     {
